@@ -3,20 +3,37 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
+import { usePathname } from "next/navigation";
 import logo from "@/assets/logo.png";
 import { FitLogContext } from "@/context/FitContext";
-
 
 const NavBar = () => {
   const { plan, saved } = useContext(FitLogContext);
 
+  const pathname = usePathname();
+
   const linked = (
     <>
       <li>
-        <Link href="/">Workouts</Link>
+        <Link
+          href="/"
+          className={pathname === "/" ? "bg-[#C2F800] text-black" : ""}
+        >
+          Workouts
+        </Link>
       </li>
+
       <li>
-        <Link href="/my-plan">My Plan</Link>
+        <Link
+          href="/my-plan"
+          className={
+            pathname === "/my-plan"
+              ? "bg-[#C2F800] text-black"
+              : ""
+          }
+        >
+          My Plan
+        </Link>
       </li>
     </>
   );
@@ -81,6 +98,7 @@ const NavBar = () => {
           className="flex items-center gap-2 text-sm text-gray-400"
         >
           <span>Plan</span>
+
           <span className="badge border-0 bg-[#ccff00] font-bold text-black">
             {plan.length}
           </span>
@@ -91,6 +109,7 @@ const NavBar = () => {
           className="flex items-center gap-2 text-sm text-gray-400"
         >
           <span>Save</span>
+
           <span className="badge border border-white/20 bg-transparent text-gray-400">
             {saved.length}
           </span>
