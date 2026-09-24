@@ -10,7 +10,7 @@ interface IFiTContext {
   setSaved: React.Dispatch<React.SetStateAction<IWorkout[]>>;
 }
 
-export const FitContext = createContext<IFiTContext>({
+export const FitLogContext = createContext<IFiTContext>({
   plan: [],
   setPlan: () => {},
   saved: [],
@@ -29,9 +29,9 @@ const FitProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <FitContext.Provider value={sharedData}>
+    <FitLogContext.Provider value={sharedData}>
       {children}
-    </FitContext.Provider>
+    </FitLogContext.Provider>
   );
 };
 

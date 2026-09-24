@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import logo from "@/assets/logo.png";
+import { FitLogContext } from "@/context/FitContext";
+
 
 const NavBar = () => {
+  const { plan, saved } = useContext(FitLogContext);
+
   const linked = (
     <>
       <li>
@@ -76,7 +82,7 @@ const NavBar = () => {
         >
           <span>Plan</span>
           <span className="badge border-0 bg-[#ccff00] font-bold text-black">
-            0
+            {plan.length}
           </span>
         </Link>
 
@@ -86,7 +92,7 @@ const NavBar = () => {
         >
           <span>Save</span>
           <span className="badge border border-white/20 bg-transparent text-gray-400">
-            0
+            {saved.length}
           </span>
         </Link>
       </div>
