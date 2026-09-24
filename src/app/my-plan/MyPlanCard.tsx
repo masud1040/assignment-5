@@ -2,14 +2,49 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import { CiStar, CiTimer } from "react-icons/ci";
 import { SlEnergy } from "react-icons/sl";
 import { IWorkout } from "@/type/type";
 import { MdCancel } from "react-icons/md";
 import { FaRegBookmark } from "react-icons/fa";
+import { FitLogContext } from "@/context/FitContext";
+import { toast } from "react-toastify";
 
-const MyPlanCard = ({ workout }: { workout: IWorkout }) => {
+interface IMyPlanCardProps {
+  workout: IWorkout;
+  isPlan: boolean;
+}
+
+const MyPlanCard = ({ workout, isPlan }: IMyPlanCardProps) => {
+  const { plan, setPlan, saved, setSaved } = useContext(FitLogContext);
+
+  const handleRemove = () => {
+    if (isPlan) {
+      const updatedPlan = plan.filter(
+        (item) => item.id !== workout.id,
+      );
+
+      setPlan(updatedPlan);
+
+      toast.success(`"${workout.name}" removed from today's plan`);
+
+    } 
+    else {
+      const updatedSaved = saved.filter(
+        (item) => item.id !== workout.id,
+      );
+
+      setSaved(updatedSaved);
+
+      toast.success(`"${workout.name}" removed from saved`);
+    }
+  };
+
+  const handleDone = () => {
+    toast.success(`"${workout.name}" marked as done`);
+  };
+
   return (
     <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-[#15171D] p-4">
       <Image
@@ -55,13 +90,21 @@ const MyPlanCard = ({ workout }: { workout: IWorkout }) => {
           View Details
         </Link>
 
-        <button className="btn btn-sm border-0 bg-[#C2F800] text-black hover:bg-[#C2F800]">
-          <FaRegBookmark /> Mark as Done
-        </button>
+        {isPlan && (
+          <button
+            onClick={() => handleDone()}
+            className="btn btn-sm border-0 bg-[#C2F800] text-black hover:bg-[#C2F800]"
+          >
+            <FaRegBookmark />
+            Mark as Done
+          </button>
+        )}
 
-        <button className="text-xl text-gray-500 hover:text-white">
+        <button
+          onClick={() => handleRemove()}
+          className="text-xl text-gray-500 hover:text-white"
+        >
           <MdCancel />
-
         </button>
       </div>
     </div>
