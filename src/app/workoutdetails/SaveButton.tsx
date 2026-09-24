@@ -3,6 +3,7 @@
 import { FitLogContext } from "@/context/FitContext";
 import { IWorkout } from "@/type/type";
 import React, { useContext } from "react";
+import { CiBookmark } from "react-icons/ci";
 import { toast } from "react-toastify";
 
 const SaveWorkoutButton = ({ workout }: { workout: IWorkout }) => {
@@ -34,7 +35,7 @@ const SaveWorkoutButton = ({ workout }: { workout: IWorkout }) => {
       className="btn btn-outline flex-1 border-white/20 text-white"
       onClick={() => handleSaveWorkout()}
     >
-      SAVE FOR LATER
+      <CiBookmark />SAVE FOR LATER
     </button>
   );
 };

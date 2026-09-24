@@ -24,9 +24,10 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
   const { id } = await params;
 
   const workout: IWorkout = await getWorkout(id);
+  // console.log("workout", workout);
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-6 py-10">
+    <div className=" container mx-auto px-6 py-10">
       <div className="grid gap-8 lg:grid-cols-2">
         <div>
           <Image

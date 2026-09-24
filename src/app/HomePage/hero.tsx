@@ -5,26 +5,26 @@ import hero from "@/assets/banner.png";
 
 const Hero = () => {
   return (
-    <div className="mx-auto mt-10 mb-10 w-full max-w-7xl px-6">
-      <div className="min-h-[510px] rounded-3xl border border-white/10 bg-[#15171D]">
-        <div className="flex min-h-[510px] flex-col items-center justify-between gap-10 p-8 md:p-12 lg:flex-row lg:px-16">
+    <div className="container mx-auto mt-10 mb-10 w-full max-w-7xl px-6">
+      <div className="rounded-3xl border border-white/10 bg-[#15171D]">
+        <div className="flex  flex-col items-center justify-between gap-10 p-8 md:p-12 lg:flex-row lg:px-16">
           <div className="max-w-2xl">
-            <span className="font-semibold tracking-wider text-[#C2F800]">
+            <span className="font-semibold  text-[#C2F800]">
               WORKOUT LIBRARY
             </span>
 
-            <h1 className="mt-5 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="mt-5 text-4xl font-extrabold  text-white md:text-5xl lg:text-6xl">
               TRAIN WITH INTENT. LOG EVERY SET.
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-7 text-gray-400 md:text-lg">
+            <p className="mt-6 max-w-xl text-base  text-gray-400 md:text-lg">
               FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
-              into today&apos;s plan, and watch the week&apos;s work add up.
+              into todays plan, and watch the weeks works add up.
             </p>
 
             <Link
               href="/"
-              className="btn mt-8 border-0 bg-[#C2F800] px-7 text-black hover:bg-[#b8eb00]"
+              className="btn mt-8 border-0 bg-[#C2F800] px-7 text-black hover:bg-[#bded1284]"
             >
               BROWSE WORKOUTS
             </Link>

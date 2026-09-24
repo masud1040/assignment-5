@@ -50,8 +50,8 @@ const MyPlanCard = ({ workout, isPlan }: IMyPlanCardProps) => {
       <Image
         src={workout.image}
         alt={workout.name}
-        width={32}
-        height={20}
+        width={102}
+        height={110}
         className="h-20 w-32 rounded-lg object-cover"
       />
 
@@ -93,7 +93,7 @@ const MyPlanCard = ({ workout, isPlan }: IMyPlanCardProps) => {
         {isPlan && (
           <button
             onClick={() => handleDone()}
-            className="btn btn-sm border-0 bg-[#C2F800] text-black hover:bg-[#C2F800]"
+            className="btn btn-sm border-0 bg-[#C2F800] text-black hover:bg-[#86ab00]"
           >
             <FaRegBookmark />
             Mark as Done

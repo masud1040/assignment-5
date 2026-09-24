@@ -3,6 +3,7 @@
 import { FitLogContext } from "@/context/FitContext";
 import { IWorkout } from "@/type/type";
 import React, { useContext } from "react";
+import { MdAddToPhotos } from "react-icons/md";
 import { toast } from "react-toastify";
 
 const AddToPlanButton = ({ workout }: { workout: IWorkout }) => {
@@ -38,9 +39,9 @@ const AddToPlanButton = ({ workout }: { workout: IWorkout }) => {
 
   return (
     <button
-      className="btn flex-1 border-0 bg-[#C2F800] text-black hover:bg-[#C2F800]"
+      className="btn flex-1 border-0 p-3 bg-[#C2F800] text-black hover:bg-[#89ac0b]"
       onClick={() => handleAddToPlan()}
-    >
+    ><MdAddToPhotos />
       ADD TO TODAYs PLAN
     </button>
   );

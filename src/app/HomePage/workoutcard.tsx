@@ -38,7 +38,7 @@ const WorkoutCard = ({ workout }: { workout: IWorkout }) => {
             <p className="mt-2 text-sm text-gray-400">{workout.equipment}</p> 
           </div> 
  
-          <div className="flex items-center gap-5 border-t border-white/10 pt-4 text-sm text-gray-300"> 
+          <div className="flex items-center gap-6 border-t border-white/10 pt-4 text-sm text-gray-300"> 
             <span className="flex items-center gap-1.5"> 
               <CiTimer /> {workout.duration} min 
             </span> 
