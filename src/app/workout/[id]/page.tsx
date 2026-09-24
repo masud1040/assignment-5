@@ -3,6 +3,8 @@ import Image from "next/image";
 import { CiStar, CiTimer } from "react-icons/ci";
 import { SlEnergy } from "react-icons/sl";
 import { IWorkout } from "@/type/type";
+import AddToPlanButton from "@/app/workoutdetails/addToPlanButton";
+import SaveWorkoutButton from "@/app/workoutdetails/SaveButton";
 
 interface IWorkoutDetailsPageProps {
   params: Promise<{
@@ -11,18 +13,14 @@ interface IWorkoutDetailsPageProps {
 }
 
 const getWorkout = async (id: string) => {
-  const response = await fetch(
-    `https://api.abcz.workers.dev/api/fitlog/${id}`,
-  );
+  const response = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
 
   const data = await response.json();
 
   return data;
 };
 
-const WorkoutDetailsPage = async ({
-  params,
-}: IWorkoutDetailsPageProps) => {
+const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
   const { id } = await params;
 
   const workout: IWorkout = await getWorkout(id);
@@ -122,13 +120,9 @@ const WorkoutDetailsPage = async ({
           </div>
 
           <div className="mt-6 flex gap-3">
-            <button className="btn border-0 bg-[#C2F800] text-black hover:bg-[#C2F800]">
-              ADD TO TODAY&apos;S PLAN
-            </button>
+            <AddToPlanButton workout={workout} />
 
-            <button className="btn btn-outline border-white/20 text-white">
-              SAVE FOR LATER
-            </button>
+         <SaveWorkoutButton workout={workout} />
           </div>
         </div>
       </div>
